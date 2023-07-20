@@ -31,6 +31,32 @@ const FilmInfoScreen = () => {
   }
 
   const renderItem = ({item, index}) => {
+    const filmPosterImage = [
+      {
+        id: 0,
+        name: 'https://images.unsplash.com/flagged/photo-1589829482673-03413c918c48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c3RhciUyMHdhcnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      },
+      {
+        id: 1,
+        name: 'https://images.unsplash.com/photo-1578374173705-969cbe6f2d6b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+      },
+      {
+        id: 2,
+        name: 'https://images.unsplash.com/photo-1623107274042-16962aa28ea8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+      },
+      {
+        id: 3,
+        name: 'https://images.unsplash.com/photo-1478479405421-ce83c92fb3ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+      },
+      {
+        id: 4,
+        name: 'https://images.unsplash.com/photo-1586136194012-35ceaddbd773?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c3RhciUyMHdhcnN8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=800&q=60',
+      },
+      {
+        id: 5,
+        name: 'https://images.unsplash.com/photo-1537420327992-d6e192287183?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHN0YXIlMjB3YXJzfGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60',
+      },
+    ];
     const inputRange = [
       (index - 1) * ITEM_WIDTH,
       index * ITEM_WIDTH,
@@ -55,7 +81,7 @@ const FilmInfoScreen = () => {
             transform: [{translateY}],
           }}>
           <Image
-            source={{uri: 'https://via.placeholder.com/150'}}
+            source={{uri: filmPosterImage[index].name}}
             style={{width: ITEM_WIDTH - SPACING * 2, height: ITEM_WIDTH * 1.5}}
           />
           <Text style={{fontSize: 16, fontWeight: 'bold', marginTop: 10}}>

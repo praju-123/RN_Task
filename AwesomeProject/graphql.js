@@ -1,30 +1,25 @@
 // graphql.js
 
-import {ApolloClient, InMemoryCache, createHttpLink, gql} from '@apollo/client';
+import {gql} from '@apollo/client';
 
-const httpLink = createHttpLink({
-  uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
-});
-
-const client = new ApolloClient({
-  link: httpLink,
-  cache: new InMemoryCache(),
-});
-
-// graphql.js
-
-export const GET_ALL_FILMS = gql`
-  query AllFilms {
-    allFilms {
+export const ALL_FILMS_QUERY = gql`
+  query AllFilms($first: Int, $after: String, $before: String, $last: Int) {
+    allFilms(first: $first, after: $after, before: $before, last: $last) {
+      edges {
+        cursor
+      }
+      pageInfo {
+        startCursor
+        hasPreviousPage
+        hasNextPage
+        endCursor
+      }
+      totalCount
       films {
-        title
         episodeID
-        director
-        producers
         releaseDate
+        title
       }
     }
   }
 `;
-
-export default client;

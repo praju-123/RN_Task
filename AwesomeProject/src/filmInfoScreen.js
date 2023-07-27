@@ -10,6 +10,7 @@ import {
   Animated,
   StyleSheet,
 } from 'react-native';
+import ImageZoom from 'react-native-image-pan-zoom';
 import {useQuery} from '@apollo/client';
 import {ALL_FILMS_QUERY} from '../graphql';
 
@@ -124,10 +125,16 @@ const FilmInfoScreen = () => {
               transform: [{translateY}],
             })
           }>
-          <Animated.Image
-            source={{uri: filmPosterUrl}}
-            style={posterImageStyle}
-          />
+          <ImageZoom
+            cropWidth={Dimensions.get('window').width}
+            cropHeight={450}
+            imageWidth={210}
+            imageHeight={300}>
+            <Animated.Image
+              source={{uri: filmPosterUrl}}
+              style={posterImageStyle}
+            />
+          </ImageZoom>
           <Text style={{fontSize: 16, fontWeight: 'bold', marginTop: 10}}>
             {item.title}
           </Text>
